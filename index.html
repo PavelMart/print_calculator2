@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="calc">
+            <div class="calc__column">
+                <div class="calc__title title">
+                    <p class="title__text">Расчет стоимости</p>
+                </div>
+                <div class="calc__body">
+                    <ul class="calc__col">
+                        <li class="calc__row item print-type">
+                            <div class="item__col item__title">Тип печати</div>
+                            <div class="item__col item__body">
+                                <select
+                                    class="item__input item__input_select"
+                                    id="print-type__select"
+                                    name="print-type__select"
+                                >
+                                    <option value="Широкоформатная сольвентная печать">
+                                        Широкоформатная сольвентная печать
+                                    </option>
+                                    <option value="Интерьерная экосольвентная печать">
+                                        Интерьерная экосольвентная печать
+                                    </option>
+                                    <option value="Рулонная УФ-печать">Рулонная УФ-печать</option>
+                                    <option value="Планшетная УФ-печать">Планшетная УФ-печать</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="calc__row item size">
+                            <div class="item__col item__title">Размер изделия</div>
+                            <div class="item__col item__body item-body">
+                                <div class="body__col">
+                                    <span class="body__col-title">Ширина</span>
+                                    <div class="item-body__container">
+                                        <input
+                                            class="item__input item__input_number"
+                                            type="number"
+                                            min="0"
+                                            id="size__weight"
+                                        />
+                                        <span>мм.</span>
+                                    </div>
+                                </div>
+                                <div class="body__col">
+                                    <span class="body__col-title">Высота</span>
+                                    <div class="item-body__container">
+                                        <input
+                                            class="item__input item__input_number"
+                                            type="number"
+                                            min="0"
+                                            id="size__height"
+                                        />
+                                        <span>мм.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="calc__row item count">
+                            <div class="item__col item__title">Количество</div>
+                            <div class="item__col item__body">
+                                <input class="item__input item__input_number" type="number" min="1" id="count__value" />
+                                <span>шт.</span>
+                            </div>
+                        </li>
+                        <li class="calc__row item material">
+                            <div class="item__col item__title">Материал/качество печати</div>
+                            <div class="item__col item__body"></div>
+                        </li>
+                        <li class="calc__row item additional-works">
+                            <div class="item__col item__title">Дополнительные работы</div>
+                            <div class="item__col item__body"></div>
+                        </li>
+                        <li class="calc__row item calculate__container">
+                            <div class="item__col item__title calculate">
+                                <button class="item__input item__input_button" id="calculate" class="btn btn__active">
+                                    РАССЧИТАТЬ
+                                </button>
+                            </div>
+                            <div class="item__col item__body result">
+                                <div class="result__column">
+                                    <p class="result__title">ИТОГО:</p>
+                                    <span class="item__input item__input_small result__price" id="price"></span>
+                                    <p class="result__currency">руб.</p>
+                                </div>
+                                <div class="result__column">
+                                    <p class="result__title result__title_small">Цена за<br />единицу:</p>
+                                    <span
+                                        class="item__input item__input_small result__price result__price_one"
+                                        id="price__one"
+                                    ></span>
+                                    <p class="result__currency">руб.</p>
+                                </div>
+                            </div>
+                            <div class="item__col calculate">
+                                <button class="item__input item__input_button" id="reset">ОЧИСТИТЬ</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="warning"></div>
+            </div>
+            <div class="calc__column">
+                <div class="calc__title title">
+                    <p class="title__text">Результаты</p>
+                </div>
+                <div class="calc__body">
+                    <ul class="calc__col border-none mb30 main-results">
+                        <li class="calc__row calc__row_result" id="print-type-result">
+                            <p id="text">Тип печати:</p>
+                            <p id="result"></p>
+                        </li>
+                        <li class="calc__row calc__row_result" id="size-result">
+                            <p id="text">Размер:</p>
+                            <p id="result"></p>
+                        </li>
+                        <li class="calc__row calc__row_result" id="count-result">
+                            <p id="text">Количество:</p>
+                            <p id="result"></p>
+                        </li>
+                        <li class="calc__row calc__row_result" id="material-result">
+                            <p id="text">Материал/качество:</p>
+                            <p id="result"></p>
+                        </li>
+                        <div class="add-works"></div>
+                    </ul>
+                    <ul class="calc__col border-none">
+                        <li class="calc__row calc__row_result main-result" id="main-result">
+                            <p>Cумма:</p>
+                            <p id="result"></p>
+                        </li>
+                        <li class="calc__row calc__row_result main-result" id="main-one-result">
+                            <p>Цена 1 экз.:</p>
+                            <p id="result"></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="calc__buttons">
+                    <button class="item__input item__input_button item__input_button_result" id="quick-order">
+                        БЫСТРЫЙ ЗАКАЗ
+                    </button>
+                    <button class="item__input item__input_button item__input_button_result" id="order-form">
+                        БЛАНК ЗАКАЗА
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="configuration.js" defer></script>
+        <script src="script.js" defer></script>
+    </body>
+</html>
